@@ -1,9 +1,8 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
  * print_to_98 - prints all natural numbers from n to 98.
- *@n: represet the numbers
+ * @n: represet the numbers
  * Return: None
  */
 void print_to_98(int n)
@@ -24,5 +23,5 @@ void print_to_98(int n)
 			n--;
 		}
 	}
-	printf("98 \n");
+	printf("98\n");
 }
