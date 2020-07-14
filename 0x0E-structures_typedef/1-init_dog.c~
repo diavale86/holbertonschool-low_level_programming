@@ -1,0 +1,21 @@
+#include "dog.h"
+
+/**
+ *init_dog:function that initializes a variable
+ *@d: direcction of structe dog
+ *@name: pointer the name in structur
+ *@age: float
+ *@owner: pointer the owner in structur
+ *
+ *Return: void
+ */
+
+void init_dog(struct dog *d, char *name, float age, char *owner)
+{
+	if (d)
+	{
+		d->name = name;
+		d->age = age;
+		d->owner = owner;
+	}
+}
