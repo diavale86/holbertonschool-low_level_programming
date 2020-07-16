@@ -14,7 +14,7 @@ int main(int ac, char **av)
 
 	if (ac != 4)
 	{
-		printf("Error/n");
+		printf("Error\n");
 		exit(98);
 	}
 	num1 = atoi(av[1]);
@@ -22,7 +22,7 @@ int main(int ac, char **av)
 	operadorf = get_op_func(av[2]);
 	if (operadorf == NULL)
 	{
-		puts("Error");
+		printf("Error\n");
 		exit(99);
 	}
 	resultado = operadorf(num1, num2);
