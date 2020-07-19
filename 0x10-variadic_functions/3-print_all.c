@@ -11,7 +11,7 @@ void print_all(const char * const format, ...)
 	va_list d;
 	int g;
 	int a;
-	char *z = "" ;
+	char *z = "";
 
 	op_t all[] = {{"c", print_char},
 		      {"i", print_int},
