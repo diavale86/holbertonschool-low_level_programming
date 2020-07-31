@@ -17,6 +17,5 @@ void free_listint(listint_t *head)
 		head = nodo->next;
 		free(nodo);
 		nodo = head;
-		
 	}
 }
