@@ -1,31 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
+
 /**
-* delete_dnodeint_at_index - deletes the node at index.
-* @head: head.
-* @index: index of node to delete.
-* Return: 1 if it success or -1 if it fail.
-*/
+ * delete_dnodeint_at_index - delete node at the n position of dlistint_t list.
+ * @head: pointer to the first element of the list
+ * @index:index
+ * Return: the pointer to a new node at the beginning of a dlistint_t list
+ */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *cp = *head, *next;
-	unsigned int count;
+	dlistint_t *temp = NULL;
+	dlistint_t *temp2 = NULL;
+	dlistint_t *temp3 = NULL;
+	dlistint_t *temp4 = NULL;
+	unsigned int i = 0, j = 0;
 
-	if (!(*head))
+	if (head == NULL || *head == NULL)
 		return (-1);
-	if (index == 0)
-	{	*head = cp->next;
-		(*head)->prev = NULL;
-		free(cp);
-		return (1);
-	}
-	for (count = 0; cp && count < index - 1; count++)
-		cp = cp->next;
-	if (!cp || !cp->next)
+	if (index == 0 && (*head)->next == NULL)
+	{
+		free(*head);
+		*head = NULL;
+		return (1); }
+	temp = *head;
+	if (index == 0 && (*head)->next != NULL)
+	{
+		temp2 = (*head)->next;
+		*head = temp2;
+		temp2->prev = NULL;
+		free(temp);
+		return (1); }
+	temp4 = *head;
+	for (i = 0; temp4->next != NULL; i++)
+		temp4 = temp4->next;
+	if (index > i)
 		return (-1);
-	next = cp->next->next;
-	free(cp->next);
-	cp->next = next;
-	if (cp->next)
-		cp->next->prev = cp;
+	for (j = 0; j < index - 1; j++)
+		temp = temp->next;
+	if (index == i)
+	{
+		temp2 = temp->next;
+		temp->next = NULL;
+		free(temp2);
+		return (1); }
+	temp2 = temp->next;
+	temp3 = temp->next->next;
+	temp->next = temp3;
+	temp3->prev = temp;
+	free(temp2);
 	return (1);
 }
